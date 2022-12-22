@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Расписание</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<header id="header" class="alt style2">
+				<a href="/" class="logo"><strong>Secrets</strong> <span>Студия танцев</span></a>
+				<nav>
+					<a href="#menu">Меню</a>
+				</nav>
+			</header>
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="http://localhost:8888/">Главная</a></li>
+                    <li><a href="http://localhost:8888/coaches/getCoaches">Тренеры</a></li>
+                    <li><a href="/schedule">Расписание</a></li>
+				</ul>
+				<ul class="actions stacked">
+					<li><a href="/myPage" class="button primary fit">Моя страница</a></li>
+				</ul>
+			</nav>
+			<section id="banner" class="style2">
+				<div class="inner">
+					<span class="image">
+						<img src="images/pic07.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h1>Расписание</h1>
+					</header>
+				</div>
+			</section>
+			<div id="main">
+				<section id="one">
+					<div class="inner">					
+						<div class="table-wrapper">
+							<table class="alt">
+								<thead>
+									<tr>
+										<th>Время\День недели</th>
+										<th>Понедельник</th>
+										<th>Вторник</th>
+										<th>Среда</th>
+										<th>Четверг</th>
+										<th>Пятница</th>
+										<th>Суббота</th>
+										<th>Воскресенье</th>
+									</tr>
+								</thead>
+								<tbody>
+									{{ for time in lesson_times }}
+									<tr>
+										<td>{{time.less_start.hours}}:{{time.less_start.minutes}}0 - {{time.less_end.hours}}:{{time.less_end.minutes}}0</td>
+										{{for x in 0..day_count}}
+                                            {{if (lessons[time.time_id][x] != null) }}
+                                                <td>{{lessons[time.time_id][x].dance_style.style_name}} <br> {{lessons[time.time_id][x].coach.surname}} {{lessons[time.time_id][x].coach.first_name[0]}}.</td>
+                                            {{else}}
+                                            <td></td>
+                                            {{end}}
+                                        {{end}}
+									</tr>
+									{{end}}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+			</div>		
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.scrollex.min.js"></script>
+		<script src="js/browser.min.js"></script>
+		<script src="js/breakpoints.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

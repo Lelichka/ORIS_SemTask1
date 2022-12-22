@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Тренеры</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<header id="header" class="alt style2">
+				<a href="http://localhost:8888/" class="logo"><strong>Secrets</strong> <span>Студия танцев</span></a>
+				<nav>
+					<a href="#menu">Меню</a>
+				</nav>
+			</header>
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="http://localhost:8888/">Главная</a></li>
+					<li><a href="http://localhost:8888/coaches/getCoaches">Тренеры</a></li>
+				</ul>
+			</nav>
+
+			<section id="banner" class="style2">
+				<div class="inner">
+					<span class="image">
+						<img src="images/banner.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h1>Тренеры</h1>
+					</header>
+				</div>
+			</section>
+
+			<div id="main">
+				<section id="two" class="spotlights">
+				{{ for x in 0..count }}
+                    <section>
+                        <img src="{{coaches[x].picture_path}}" alt="" id="coachPicture" data-position="{{if x == 0}}center center{{else if x == 1}}top center{{else}}25% 25%{{end}}"/>
+                        <div class="content">
+                            <div class="inner">
+                                <header class="major">
+                                    <h3>{{coaches[x].surname}} {{coaches[x].first_name}}</h3>
+                                </header>
+                                <p>{{coaches[x].about_coach}}</p>
+                                <ul class="actions">
+                                    <li><a href="http://localhost:8888/coaches/getCoach/{{coaches[x].id}}" class="button">Узнать направления тренера</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+				{{end}}	
+				</section>
+			</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.scrollex.min.js"></script>
+		<script src="js/browser.min.js"></script>
+		<script src="js/breakpoints.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

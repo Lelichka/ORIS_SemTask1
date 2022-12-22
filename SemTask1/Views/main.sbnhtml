@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Главная</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="/" class="logo"><strong>Secrets</strong> <span>Студия танцев</span></a>
+						<nav>
+							<a href="#menu">Меню</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="/">Главная</a></li>
+							<li><a href="/coaches/getCoaches">Тренеры</a></li>
+							{{if is_autorised}}
+							<li><a href="/schedule">Расписание</a></li>
+							{{else}}
+							<li><a href="/login">Расписание</a></li>
+							{{end}}
+                                                
+						</ul>
+						<ul class="actions stacked">
+						    {{ if !is_autorised }}
+						    <li><a href="/registration" class="button primary fit">Зарегестрироваться</a></li>
+                            <li><a href="/login" class="button fit">Войти</a></li>
+						    {{ else }}
+						    <li><a href="/myPage" class="button primary fit">Моя страница</a></li>
+						    <li><a href="/login/LogOff" class="button fit">Выйти</a></li>
+						    {{ end }}
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1>Студия танцев "Secrets"</h1>
+							</header>
+							{{ if !is_autorised }}
+							<div class="content">
+								<p>Зарегестрируйтесь, чтобы узнать расписание и приобрести абонемент</p>
+								<ul class="actions">
+									<li><a href="/registration" class="button next scrolly">Присоединиться</a></li>
+								</ul>
+							</div>
+							{{ else }}
+							<div class="content">
+                            	<ul class="actions">
+                            		<li><a href="/myPage" class="button next scrolly">Моя страница</a></li>
+                            	</ul>
+                            </div>
+                            {{ end }}
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one" class="tiles">
+							    {{ for style in styles }}
+								<article>
+									<span class="image">
+										<img src="{{ style.picture_path }}" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="http://localhost:8888/styles/getStyle/{{ style.id }}" class="link">{{ style.style_name }}</a></h3>
+										<p>{{ style.short_description }}</p>
+									</header>
+								</article>
+								{{ end }}
+							</section>
+							{{ if is_autorised }}
+							<section id="two">
+                            	<div class="inner">
+                            		<header class="major">
+                            			<h2>Расписание</h2>
+                            		</header>
+                            		<ul class="actions">
+                            			<li><a href="/schedule" class="button next">Перейдите, чтобы посмотреть расписание</a></li>
+                            		</ul>
+                            	</div>
+                            </section>
+                            {{else}}
+                            {{end}}
+							<section id="two">
+								<div class="inner">
+									<header class="major">
+										<h2>Отзывы о студии</h2>
+									</header>
+									{{ for comment in comments }}
+									<h4>{{ comment.user_name }}</h4>
+									<blockquote>{{ comment.message }}</blockquote>
+									{{ end }}
+								</div>
+							</section>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="js/jquery.min.js"></script>
+			<script src="js/jquery.scrolly.min.js"></script>
+			<script src="js/jquery.scrollex.min.js"></script>
+			<script src="js/browser.min.js"></script>
+			<script src="js/breakpoints.min.js"></script>
+			<script src="js/util.js"></script>
+			<script src="js/main.js"></script>
+	</body>
+</html>

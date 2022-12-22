@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Войти</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper">
+
+			<header id="header">
+				<a href="/" class="logo"><strong>Secrets</strong> <span>Студия танцев</span></a>
+				<nav>
+					<a href="#menu">Меню</a>
+				</nav>
+			</header>
+
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="/">Главная</a></li>
+					<li><a href="/coaches/getCoaches">Тренеры</a></li>
+				</ul>
+				<ul class="actions stacked">
+					<li><a href="/registration" class="button primary fit">Зарегестрироваться</a></li>
+					<li><a href="/login" class="button fit">Войти</a></li>
+				</ul>
+			</nav>
+
+			<div id="main" class="alt">
+				<section id="one">
+					<div class="inner">
+						<header class="major">
+							<h1>Вход</h1>
+						</header>							
+						<form method="post" action="/login">
+							<div class="row gtr-uniform">
+								<div class="col-6 col-12-xsmall">
+									<input type="email" name="email" id="email" value="" placeholder="Введите почту или имя пользователя" />
+									{{if is_login_not_exist}}
+									<label style="color: red;">
+										<b>Нет пользователя с этим логином</b>
+									</label>
+									{{end}}
+								</div>								
+								<div class="col-6 col-12-xsmall">
+									<input type="password" name="password" id="password" value="" placeholder="Пароль" />
+									{{if is_wrong_password}}
+									<label style="color: red;">
+										<b>Неверный пароль</b>
+									</label>
+									{{end}}
+								</div>
+								<div class="col-6 col-12-small">
+									<input type="checkbox" id="demo-human" name="demo-human" checked>
+									<label for="demo-human">Запомнить меня</label>
+								</div>
+
+								<div class="col-12">
+									
+									<ul class="actions">
+										<li><input type="submit" value="Войти" class="primary" /></li>
+									</ul>
+									<a href="/registration">
+										Нет аккаунта? Создайте
+									</a> 
+								</div>							
+							</div>
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.scrollex.min.js"></script>
+		<script src="js/browser.min.js"></script>
+		<script src="js/breakpoints.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/main.js"></script>										
+	</body>
+</html>

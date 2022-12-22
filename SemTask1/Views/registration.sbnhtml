@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Регистрация</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<header id="header">
+				<a href="/" class="logo"><strong>Secrets</strong> <span>Студия танцев</span></a>
+				<nav>
+					<a href="#menu">Меню</a>
+				</nav>
+			</header>
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="http://localhost:8888/">Главная</a></li>
+					<li><a href="http://localhost:8888/coaches/getCoaches">Тренеры</a></li>
+				</ul>
+				<ul class="actions stacked">
+                	<li><a href="/registration" class="button primary fit">Зарегестрироваться</a></li>
+                	<li><a href="/login" class="button fit">Войти</a></li>
+                </ul>
+			</nav>
+			<div id="main" class="alt">
+				<section id="one">
+					<div class="inner">
+						<header class="major">
+							<h1>Регистрация</h1>
+						</header>
+						<h3>Заполните форму</h3>
+						<form method="post" action="/registration">
+							<div class="row gtr-uniform">
+								<div class="col-6 col-12-xsmall">
+									<input type="text" name="name" id="name" value="" placeholder="Придумайте уникальное имя пользователя" />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<input type="email" name="email" id="email" value="" placeholder="Введите почту" />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<input type="password" name="password" id="password" value="" placeholder="Пароль" />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<input type="password" name="passwordRepet" id="passwordRepet" value="" placeholder="Повторите пароль" />
+								</div>
+							
+								<div class="col-12">
+								    {{ if !is_registration_success}}
+                                        <label style="color: red; font-size: 12px">
+                                            <b>имя пользователя или адрес эл. почты уже существует</b>
+                                        </label>
+                                    {{else}}
+									{{end}}
+									{{if !is_password_success}}
+                                        <label style="color: red; font-size: 12px">
+                                            <b>Пароли не совпадают</b>
+                                        </label>
+                                    {{else}}
+									{{end}}
+									<ul class="actions">
+										<li><input type="submit" value="Зарегестрироваться" class="primary" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+						<li><a href="/login">
+							Уже зарегистрированы? Войдите в свой аккаунт
+						</a> </li>
+					</div>
+				</section>
+			</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.scrollex.min.js"></script>
+		<script src="js/browser.min.js"></script>
+		<script src="js/breakpoints.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/main.js"></script>										
+	</body>
+</html>

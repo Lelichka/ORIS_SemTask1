@@ -1,0 +1,70 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Танец</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+
+			<header id="header">
+				<a href="http://localhost:8888/" class="logo"><strong>Secrets</strong> <span>Студия танцев</span></a>
+				<nav>
+					<a href="#menu">Меню</a>
+				</nav>
+			</header>
+
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="http://localhost:8888/">Главная</a></li>
+					<li><a href="http://localhost:8888/coaches/getCoaches">Тренеры</a></li>
+				</ul>
+			</nav>
+
+			<div id="main" class="alt">
+				<section id="one">
+					<div class="inner">
+						<header class="major">
+							<h1>{{style.style_name}}</h1>
+						</header>
+
+
+						<div class="box">
+							<p>"{{style.short_description}}"</p>
+						</div>
+						<p>{{style.long_description}}</p>
+						<h4>Тренеры</h4>
+						<ul>
+						    {{for coach in coaches}}
+							<li>{{coach.surname}} {{coach.first_name}}</li>
+							{{end}}
+						</ul>
+						{{func decide(x,n)
+                           ret x * n * (100 - 2 * n) / 100
+                        end}}
+						<h4>Стоимость абонемента</h4>
+						<ul>
+							<li>1 месяц: {{style.lesson_cost}} ₽</li>
+							<li>2 месяца: {{decide style.lesson_cost 2}} ₽</li>
+							<li>3 месяца: {{decide style.lesson_cost 3}} ₽</li>
+							<li>Полгода: {{decide style.lesson_cost 6}} ₽</li>
+							<li>Год: {{decide style.lesson_cost 12}} ₽</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.scrollex.min.js"></script>
+		<script src="js/browser.min.js"></script>
+		<script src="js/breakpoints.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html>
