@@ -26,6 +26,17 @@ public class SessionManager
 
         return session is not null ? session.UserId : 0;
     }
+    public Guid GetSessionIdByUserId(int id)
+    {
+        var session = new SessionsDAO(strConnection).GetByUserId(id);
+
+        return session.Id;
+    }
+
+    public void DeleteSession(string id)
+    {
+        new SessionsDAO(strConnection).DeleteById(id);
+    }
 
 
     

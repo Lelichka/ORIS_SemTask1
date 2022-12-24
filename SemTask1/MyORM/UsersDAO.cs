@@ -40,9 +40,5 @@ public class UsersDAO
     {
         throw new NotImplementedException();
     }
-
-    public void Delete(User entity)
-    {
-        new Database(StrConnection).Delete(entity,"Users");
-    }
+    
 }

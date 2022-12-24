@@ -36,9 +36,19 @@
 							<div class="row gtr-uniform">
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="name" id="name" value="" placeholder="Придумайте уникальное имя пользователя" />
+									{{if !is_user_correct}}
+									<label style="color: red;">
+                                        <b>Вы можете использовать только буквы и цифры(первый символ буква) Ограничение по длине 2 - 20 символов</b>
+                                    </label>
+                                    {{end}}
 								</div>
 								<div class="col-6 col-12-xsmall">
-									<input type="email" name="email" id="email" value="" placeholder="Введите почту" />
+									<input type="text" name="email" id="email" value="" placeholder="Введите почту" />
+									{{if !is_email_correct}}
+                                        <label style="color: red;">
+                                            <b>Введен некорректный e-mail</b>
+                                        </label>
+                                    {{end}}
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<input type="password" name="password" id="password" value="" placeholder="Пароль" />
@@ -52,13 +62,16 @@
                                         <label style="color: red; font-size: 12px">
                                             <b>имя пользователя или адрес эл. почты уже существует</b>
                                         </label>
-                                    {{else}}
 									{{end}}
+									{{ if !is_all_fields_fill}}
+                                        <label style="color: red; font-size: 12px">
+                                            <b>Заполните все поля</b>
+                                        </label>
+                                    {{end}}
 									{{if !is_password_success}}
                                         <label style="color: red; font-size: 12px">
                                             <b>Пароли не совпадают</b>
                                         </label>
-                                    {{else}}
 									{{end}}
 									<ul class="actions">
 										<li><input type="submit" value="Зарегестрироваться" class="primary" /></li>

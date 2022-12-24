@@ -23,7 +23,7 @@ public class HttpServer
             Console.WriteLine("Сервер уже запущен");
             return;
         }
-        settings = JsonSerializer.Deserialize<ServerSettings>(File.ReadAllBytes(@"D:\ITIS\2022-2023\Inf\SemTask1\SemTask1\settings.json"));
+        settings = JsonSerializer.Deserialize<ServerSettings>(File.ReadAllBytes(@"D:\ITIS\2022-2023\Inf\semtask1_rep\ORIS_SemTask1\SemTask1\settings.json"));
         
         listener.Prefixes.Clear();
         listener.Prefixes.Add($"http://localhost:{settings.Port}/");

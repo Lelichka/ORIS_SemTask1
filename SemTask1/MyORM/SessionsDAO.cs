@@ -14,6 +14,10 @@ public class SessionsDAO
     {
         return new Database(StrConnection).ExecuteQuery<Session>($"select {string.Join(',',typeof(Session).GetProperties().Select(p => p.Name).ToList())} from Sessions where Id = '{id}'").FirstOrDefault();
     }
+    public Session? GetByUserId(int id)
+    {
+        return new Database(StrConnection).ExecuteQuery<Session>($"select {string.Join(',',typeof(Session).GetProperties().Select(p => p.Name).ToList())} from Sessions where UserId = {id}").FirstOrDefault();
+    }
 
     public IEnumerable<Session> FindAll()
     {
@@ -33,5 +37,9 @@ public class SessionsDAO
     public void Delete(Session entity)
     {
         new Database(StrConnection).Delete(entity,"Sessions");
+    }
+    public void DeleteById(string id)
+    {
+        new Database(StrConnection).ExecuteNonQuery($"delete from Sessions where Id = '{id}'");
     }
 }

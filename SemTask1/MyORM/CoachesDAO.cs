@@ -30,19 +30,5 @@ public class CoacesDAO
     {
         return new Database(StrConnection).Select<Coach>( "Coaches");
     }
-
-    public void Create(Coach entity)
-    {
-        new Database(StrConnection).Insert(entity, "Coaches");
-    }
-
-    public void Update(Coach entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Delete(Coach entity)
-    {
-        new Database(StrConnection).Delete(entity,"Coaches");
-    }
+    
 }

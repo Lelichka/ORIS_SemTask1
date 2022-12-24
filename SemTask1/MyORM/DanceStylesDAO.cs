@@ -28,19 +28,5 @@ public class DanceStylesDAO
     {
         return new Database(StrConnection).Select<DanceStyle>( "DanceStyle");
     }
-
-    public void Create(DanceStyle entity)
-    {
-        new Database(StrConnection).Insert(entity, "DanceStyle");
-    }
-
-    public void Update(DanceStyle entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Delete(DanceStyle entity)
-    {
-        new Database(StrConnection).Delete(entity,"DanceStyle");
-    }
+    
 }

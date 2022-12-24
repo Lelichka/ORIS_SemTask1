@@ -105,7 +105,7 @@ public static class RequestHandler
         response.StatusCode = (int)result.StatusCode;
 
         if (result.Cookies is not null)
-            response.Cookies = result.Cookies;
+            response.Cookies.Add(result.Cookies); 
         
         
         if (response.StatusCode == (int)HttpStatusCode.Redirect)
@@ -149,7 +149,9 @@ public static class RequestHandler
         {
             var manager = SessionManager.Instance;
             var sessionId = CookieManager.GetAuthenticatedCookie(request.Cookies);
-            args.Add(manager.GetAccountIdFromSession(sessionId).ToString());
+            if (sessionId != "")
+                args.Add(manager.GetAccountIdFromSession(sessionId).ToString());
+            else args.Add("0");
         }
 
         args = query.Concat(args).ToList();

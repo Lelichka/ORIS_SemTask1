@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GvfhOo3PoCIFCrS5knSeGwEMQLv+etUnTiRs0XFLJHWPOfhOt0O8BQV6Dq3w2l0/m30wfBKcL5TkxtxDFDqxgg==",
+  "dgSpecHash": "yiPD5igbxlfeemidU7ojiLySKOvrZfW8E+8yd/8jCGeMy3oS8J7zSdP1ctLOXT4S+gIh7COevlALUrdJU8cqPg==",
   "success": true,
-  "projectFilePath": "D:\\ITIS\\2022-2023\\Inf\\SemTask1\\SemTask1\\SemTask1.csproj",
+  "projectFilePath": "D:\\ITIS\\2022-2023\\Inf\\semtask1_rep\\ORIS_SemTask1\\SemTask1\\SemTask1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\olmen\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\olmen\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",

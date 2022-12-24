@@ -15,12 +15,12 @@ public class RegistrationResult : Result
         _template = Template.Parse(data);
     }
     
-    public RegistrationResult(bool isRegistrationSuccess, bool isPasswordSuccess)
+    public RegistrationResult(bool isAllFieldsFill,bool isRegistrationSuccess, bool isPasswordSuccess, bool isEmailCorrect, bool isUserCorrect)
     {
         StatusCode = HttpStatusCode.OK;
         ContentType = "text/html";
         Buffer = Encoding.UTF8.GetBytes(
-            _template.Render(new {isRegistrationSuccess = isRegistrationSuccess, isPasswordSuccess = isPasswordSuccess }));
+            _template.Render(new {isAllFieldsFill = isAllFieldsFill,isRegistrationSuccess = isRegistrationSuccess, isPasswordSuccess = isPasswordSuccess,isEmailCorrect = isEmailCorrect, isUserCorrect = isUserCorrect  }));
     }
     public RegistrationResult()
     {

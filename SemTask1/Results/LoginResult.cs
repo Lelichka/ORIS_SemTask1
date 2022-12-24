@@ -45,13 +45,17 @@ public class LoginResult : Result
         var manager = SessionManager.Instance;
         manager.CreateSession(sessionId, user, login);
     }
-    public LoginResult()
+    public LoginResult(int id)
     {
         StatusCode = HttpStatusCode.Redirect;
         RedirectPath = "/";
-
-        
-        Cookies = new CookieCollection() {  };
+        var sessionId = SessionManager.Instance.GetSessionIdByUserId(id);
+        SessionManager.Instance.DeleteSession(sessionId.ToString());
+        var cookie = new Cookie("SessionId",sessionId.ToString())
+        {
+            Expires = DateTime.Now.AddDays(-1d)
+        };
+        Cookies = new CookieCollection() { cookie };
         
     }
 }

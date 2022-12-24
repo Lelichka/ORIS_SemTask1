@@ -2,12 +2,15 @@
 <html>
 	<head>
 		<title>Главная</title>
+		
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+		
 	</head>
 	<body class="is-preload">
+	   
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -102,14 +105,39 @@
 										<h2>Отзывы о студии</h2>
 									</header>
 									{{ for comment in comments }}
-									<h4>{{ comment.user_name }}</h4>
-									<blockquote>{{ comment.message }}</blockquote>
-									{{ end }}
+									<h4 style="margin-top: 30px;">{{ comment.user_name }}</h4>
+									<blockquote style="margin-bottom: 5px;">{{ comment.message }} </blockquote>
+									{{if user_id == comment.user_id }}<a href="/comment/delete/{{comment.id}}" style="margin-right: 20px; margin-bottom: 20px;font-size: 16px; padding : 0;">Удалить</a>
+									<a href="#";  style="margin-right: 20px; margin-bottom: 20px;font-size: 16px; padding : 0;" onclick="update('update');return false;" >Обновить</a> 
+									<div class="hidden" id="update">
+									<form method="post" action="/comment/update/{{comment.id}}" style="margin-top:40px;">
+                                        <textarea name="comment" id="demo-message" rows="1">{{comment.message}}</textarea>
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Отправить" class="primary"/></li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                    </div>
+                                     {{end}}
+									 {{end}}
+									{{if is_autorised}}
+									<form method="post" action="/comment" style="margin-top:40px;">
+                                        <div class="col-12">
+                                            <textarea name="comment" id="demo-message" placeholder="Введите ваш комментарий" rows="3"></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Отправить" class="primary"  /></li>
+                                            </ul>
+                                        </div>
+									</form>
+									{{end}}
+									
 								</div>
 							</section>
 					</div>
 			</div>
-
 		<!-- Scripts -->
 			<script src="js/jquery.min.js"></script>
 			<script src="js/jquery.scrolly.min.js"></script>
@@ -118,5 +146,7 @@
 			<script src="js/breakpoints.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
+			<script src="js/update.js"></script>
+			
 	</body>
 </html>

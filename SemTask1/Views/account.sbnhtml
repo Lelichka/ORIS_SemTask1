@@ -44,15 +44,6 @@
 						<section>
 							<h3>Имя пользователя: {{user.user_name}}</h3>
 							<h4>Почта: {{user.email}}</h4>
-							<a href="#" id="needShift"class="button primary">Поменять пароль</a>
-						</section>
-						<section>
-							
-							<h4>Активные абонементы: </h4>
-							<ul>
-								
-							</ul>
-							<a href="#" id="needShift"class="button primary">Приобрести абонемент</a>
 						</section>
 					</div>
 				</section>

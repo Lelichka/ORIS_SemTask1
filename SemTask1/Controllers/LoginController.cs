@@ -32,9 +32,10 @@ public class LoginController
         return new LoginResult(false, true);
     }
     [HttpGet("LogOff")]
-    public LoginResult LogOffAndGetMainPage()
+    [AuthCookieRequired]
+    public LoginResult LogOffAndGetMainPage(int id)
     {
-        return new LoginResult();
+        return new LoginResult(id);
     }
     
 }

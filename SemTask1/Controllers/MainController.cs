@@ -23,7 +23,7 @@ namespace SemTask1.Controller
         {
             var comments = new CommentsDAO(strConnection).FindAll().ToList();
             var styles = new DanceStylesDAO(strConnection).FindAll().ToList();
-            return new MainResult(styles,comments, userId != 0);
+            return new MainResult(styles,comments, userId != 0, userId);
         }
         
     }

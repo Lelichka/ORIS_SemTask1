@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ITIS\\2022-2023\\Inf\\SemTask1\\SemTask1\\SemTask1.csproj": {}
+    "D:\\ITIS\\2022-2023\\Inf\\semtask1_rep\\ORIS_SemTask1\\SemTask1\\SemTask1.csproj": {}
   },
   "projects": {
-    "D:\\ITIS\\2022-2023\\Inf\\SemTask1\\SemTask1\\SemTask1.csproj": {
+    "D:\\ITIS\\2022-2023\\Inf\\semtask1_rep\\ORIS_SemTask1\\SemTask1\\SemTask1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITIS\\2022-2023\\Inf\\SemTask1\\SemTask1\\SemTask1.csproj",
+        "projectUniqueName": "D:\\ITIS\\2022-2023\\Inf\\semtask1_rep\\ORIS_SemTask1\\SemTask1\\SemTask1.csproj",
         "projectName": "SemTask1",
-        "projectPath": "D:\\ITIS\\2022-2023\\Inf\\SemTask1\\SemTask1\\SemTask1.csproj",
+        "projectPath": "D:\\ITIS\\2022-2023\\Inf\\semtask1_rep\\ORIS_SemTask1\\SemTask1\\SemTask1.csproj",
         "packagesPath": "C:\\Users\\olmen\\.nuget\\packages\\",
-        "outputPath": "D:\\ITIS\\2022-2023\\Inf\\SemTask1\\SemTask1\\obj\\",
+        "outputPath": "D:\\ITIS\\2022-2023\\Inf\\semtask1_rep\\ORIS_SemTask1\\SemTask1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\olmen\\AppData\\Roaming\\NuGet\\NuGet.Config",

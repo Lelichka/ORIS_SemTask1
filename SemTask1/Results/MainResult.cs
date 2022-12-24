@@ -14,11 +14,11 @@ public class MainResult : Result
         var data = File.ReadAllText("Views/main.sbnhtml");
         _template = Template.Parse(data);
     }
-    public MainResult( List<DanceStyle> styles, List<Comment> comments, bool isAutorised)
+    public MainResult( List<DanceStyle> styles, List<Comment> comments, bool isAutorised, int userId)
     {
         StatusCode = HttpStatusCode.OK;
         ContentType = "text/html";
         Buffer = Encoding.UTF8.GetBytes(
-            _template.Render(new { styles = styles, comments = comments, isAutorised = isAutorised }));
+            _template.Render(new { styles = styles, comments = comments, isAutorised = isAutorised , userId = userId}));
     }
 }

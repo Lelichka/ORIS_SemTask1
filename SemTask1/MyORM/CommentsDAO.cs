@@ -12,7 +12,7 @@ public class CommentsDAO
     }
     public Comment GetById(int id)
     {
-        return new Database(StrConnection).GetById<Comment>(id, "Сomments");
+        return new Database(StrConnection).GetById<Comment>(id, "Comments");
     }
 
     public IEnumerable<Comment> FindAll()
@@ -25,9 +25,14 @@ public class CommentsDAO
         new Database(StrConnection).Insert(entity, "Comments");
     }
 
-    public void Update(Comment entity)
+    public void UpdateMessageById(int id,string message)
     {
-        throw new NotImplementedException();
+        new Database(StrConnection).ExecuteNonQuery($"update Comments set Message = '{message}' where Id = {id}");
+    }
+    
+    public void DeleteById(int id)
+    {
+        new Database(StrConnection).ExecuteNonQuery($"delete from Comments where Id = {id}");
     }
 
     public void Delete(Comment entity)
